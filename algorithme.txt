@@ -1,0 +1,39 @@
+// ALGORITHME : Analyse_Phrase
+// But : Calculer la longueur, le nombre de mots et de voyelles d'une phrase finissant par un point.
+
+VARIABLES
+    longueur, nb_mots, nb_voyelles : ENTIER
+    c : CARACTERE
+
+DEBUT
+    // Initialisation des compteurs à zéro
+    longueur <- 0
+    nb_mots <- 0
+    nb_voyelles <- 0
+
+    // Début de la lecture caractère par caractère
+    REPETER
+        LIRE(c)
+        
+        // On incrémente la longueur pour chaque caractère lu
+        longueur <- longueur + 1
+
+        // Vérification si le caractère est une voyelle (minuscule ou majuscule)
+        SI (c = 'a' OU c = 'e' OU c = 'i' OU c = 'o' OU c = 'u' OU c = 'y' OU
+            c = 'A' OU c = 'E' OU c = 'I' OU c = 'O' OU c = 'U' OU c = 'Y') ALORS
+            nb_voyelles <- nb_voyelles + 1
+        FIN_SI
+
+        // Un mot se termine par un espace ou par le point final
+        SI (c = ' ' OU c = '.') ALORS
+            nb_mots <- nb_mots + 1
+        FIN_SI
+
+    // La condition d'arrêt est la détection du point
+    JUSQU'A (c = '.')
+
+    // Affichage des résultats finaux
+    AFFICHER("Nombre total de caractères : ", longueur)
+    AFFICHER("Nombre total de mots : ", nb_mots)
+    AFFICHER("Nombre total de voyelles : ", nb_voyelles)
+FIN
